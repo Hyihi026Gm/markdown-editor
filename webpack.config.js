@@ -5,19 +5,24 @@
    module: {
      rules: [
        {
-         test: /\.tsx$/,
+         test: /\.tsx?$/,
          use: 'ts-loader',
          exclude: /node_modules/,
        },
      ],
    },
    resolve: {
-     extensions: ['.js','.ts','tsx'],
+     extensions: ['.js','.ts','.tsx'],
    },
    output: {
      path: path.resolve(__dirname, 'dist'),
      filename: 'index.js',
      publicPath: 'dist/',
+   },
+   devServer: {
+     publicPath: '/dist/',
+     hot: true,
+     open: true,
    }
  }
 
